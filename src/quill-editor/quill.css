@@ -1,0 +1,13 @@
+.complex {
+  border-radius: 1rem;
+  border: 0.2rem solid black;
+  margin: 0.3rem;
+}
+
+.ql-toolbar .ql-footer:before {
+  content: 'footer';
+}
+
+.variable .variable:before {
+  content: 'variable';
+}
