@@ -38,9 +38,7 @@ class MediumEditorComponent extends React.Component {
           hasRemove={true}
           onIconClick={() => false}
           contenteditable="false"
-        >
-          Invalid piping
-        </Tag></div>
+        /></div>
         <div id="someRelativeDiv" ></div>
       </div>
     )

@@ -24,9 +24,7 @@ class TinyMceEditor extends React.Component {
           hasRemove={true}
           onIconClick={() => false}
           className='mceNonEditable'
-        >
-          Invalid piping
-        </Tag>)}
+        />)}
           // initialValue='This is the initial content of the editor.'
          init={{
           height: 500,

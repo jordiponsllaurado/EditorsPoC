@@ -50,9 +50,7 @@ class QuillEditor extends React.Component {
                 title='Piping'
                 hasRemove={true}
                 onIconClick={() => false}
-              >
-                Invalid piping
-              </Tag>
+              />
             </div>
           </div>
       </div>
