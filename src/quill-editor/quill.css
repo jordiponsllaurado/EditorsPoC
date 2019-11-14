@@ -11,3 +11,15 @@
 .variable .variable:before {
   content: 'variable';
 }
+
+.mention {
+  background-color: #ce381e;
+}
+
+.ql-mention-list-item {
+  background-color: #b96e6e;
+}
+
+.ql-mention-list-item.selected {
+  background-color: #de8484;
+}

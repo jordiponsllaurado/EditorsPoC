@@ -3,9 +3,13 @@ import Tag from '@typeform/kitt/lib/components/tag'
 import { colors } from '@typeform/kitt/lib/variables'
 
 import Quill from 'quill';
+import 'quill-mention'
 
 import 'quill/dist/quill.bubble.css'
 import './quill.css'
+
+var toMarkdown = require('to-markdown');
+
 const BlockEmbed = Quill.import('blots/block/embed');
 
 // Create a new format based off the BlockEmbed.
@@ -27,14 +31,38 @@ class QuillEditor extends React.Component {
       modules: {
         toolbar: [
           ['bold', 'italic', 'underline', 'link'],
-        ]
+        ],
+        mention: {
+          allowedChars: /^[A-Za-z\sÅÄÖåäö]*$/,
+          mentionDenotationChars: ["@"],
+          source: function (searchTerm, renderList, mentionChar) {
+            let values= [
+                { id: 1, value: 'Fredrik Sundqvist' },
+                { id: 2, value: 'Patrik Sjölin' }
+              ];
+    
+            if (searchTerm.length === 0) {
+              renderList(values, searchTerm);
+            } else {
+              const matches = [];
+              for (let i = 0; i < values.length; i++)
+                if (~values[i].value.toLowerCase().indexOf(searchTerm.toLowerCase())) matches.push(values[i]);
+              renderList(matches, searchTerm);
+            }
+          },
+        },
       },
       scrollingContainer: '#scrolling-container', 
       placeholder: 'Compose an epic...',
       theme: 'bubble'  // or 'bubble'
-    });
-  }
+    })
+    ;
+    quill.on('editor-change', function(delta, oldDelta, source) {
+      console.log('normal', JSON.stringify(quill.getContents()))
+      console.log('markdown', toMarkdown(quill.root.innerHTML))
+    })
 
+  }
   render() {
     return (
       <div>
@@ -44,13 +72,7 @@ class QuillEditor extends React.Component {
             {/* <!-- Create the editor container --> */}
             <div id="editor">
               <p>Some initial text</p>
-              <Tag
-                color={colors.danger}
-                solid
-                title='Piping'
-                hasRemove={true}
-                onIconClick={() => false}
-              />
+              <div className='ql-custom'></div>
             </div>
           </div>
       </div>
