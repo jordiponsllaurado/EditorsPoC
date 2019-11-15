@@ -35,17 +35,25 @@ class QuillEditor extends React.Component {
           },
         },
       },
-      scrollingContainer: '#scrolling-container', 
       placeholder: 'Compose an epic...',
-      theme: 'bubble'  // or 'bubble'
+      theme: 'bubble'
     })
-    ;
+    quill.setContents({
+        "ops":[
+            {"insert":"this is a test bit of text\n"}
+        ]
+    });
+    quill.setContents({
+      "ops": [
+        {"insert":{"mention":{"index":"1","denotationChar":"@","id":"2","value":"Patrik Sjölin"}}}
+      ]
+    })
     quill.on('editor-change', function(delta, oldDelta, source) {
       console.log('normal', JSON.stringify(quill.getContents()))
       console.log('markdown', toMarkdown(quill.root.innerHTML))
     })
-
   }
+
   render() {
     return (
       <div>
@@ -54,8 +62,6 @@ class QuillEditor extends React.Component {
         <div id="QuillEditor-container">
             {/* <!-- Create the editor container --> */}
             <div id="editor">
-              <p>Some initial text</p>
-              <div className='ql-custom'></div>
             </div>
           </div>
       </div>
