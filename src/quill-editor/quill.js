@@ -39,15 +39,11 @@ class QuillEditor extends React.Component {
       theme: 'bubble'
     })
     quill.setContents({
-        "ops":[
-            {"insert":"this is a test bit of text\n"}
-        ]
-    });
-    quill.setContents({
       "ops": [
         {"insert":{"mention":{"index":"1","denotationChar":"@","id":"2","value":"Patrik Sjölin"}}}
       ]
     })
+    quill.insertText(1, "This is a test bit of text\n");
     quill.on('editor-change', function(delta, oldDelta, source) {
       console.log('normal', JSON.stringify(quill.getContents()))
       console.log('markdown', toMarkdown(quill.root.innerHTML))
