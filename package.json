@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ckeditor/ckeditor5-build-balloon": "^15.0.0",
+    "@ckeditor/ckeditor5-mention": "^15.0.0",
     "@ckeditor/ckeditor5-react": "^1.1.3",
     "@tinymce/tinymce-react": "^3.3.2",
     "@typeform/kitt": "^30.0.2",
