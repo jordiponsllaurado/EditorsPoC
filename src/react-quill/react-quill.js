@@ -66,12 +66,16 @@ class ReactQuillEditor extends React.Component {
 
   render() {
     return (
-      <ReactQuill
-        ref={(el) => { this.reactQuillRef = el }}
-        theme="bubble"
-        value={this.state.text}
-        modules={this.modules}
-        onChange={this.handleChange} />
+      <div>
+        <span>React Quill</span>
+        <a href=' https://quilljs.com/'> https://quilljs.com/</a>
+        <ReactQuill
+          ref={(el) => { this.reactQuillRef = el }}
+          theme="bubble"
+          value={this.state.text}
+          modules={this.modules}
+          onChange={this.handleChange} />
+      </div>
     )
   }
 }
