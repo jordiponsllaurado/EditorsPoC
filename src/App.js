@@ -5,6 +5,7 @@ import MediumEditor from './medium-editor'
 import TinyMceEditor from './tinymce-editor/tinymce-editor';
 import CKEEditor from './cke-editor/cke-editor';
 import QuillEditor from './quill-editor';
+import ReactQuill from './react-quill';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
       <CKEEditor />
       <hr />
       <QuillEditor />
+      <hr />
+      <ReactQuill />
     </div>
   );
 }
